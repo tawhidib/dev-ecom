@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Product } from "../interfaces/products.interface";
 import productAPI from "@/lib/productsAPI";
+import { Button } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>();
   const [newProducts, setNewProducts] = useState<Product[]>();
 
@@ -26,13 +27,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {products?.length &&
-          products.map((product) => (
-            <div key={product.id}>
-              <h2>{product.title}</h2>
-            </div>
-          ))}
+        <Button>Hello</Button>
       </main>
     </>
   );
-}
+};
+
+export default Home;
